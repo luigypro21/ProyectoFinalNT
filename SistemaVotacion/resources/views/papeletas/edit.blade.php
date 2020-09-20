@@ -22,8 +22,7 @@
     </ul>
 </div>
 @endif
-//PAPELETANUMERO, VOTANTECEDULA, PAPELETATIPO, PAPELETAFECHAVOTACION
-//value="{{ $papeletas->POSTULANTEID }}" 
+ 
 <form action="{{ route('papeletas.update',$papeletas->PAPELETANUMERO )}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')

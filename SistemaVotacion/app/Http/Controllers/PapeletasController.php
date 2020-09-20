@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Papeletas;
 use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\Storage;
 
 class PapeletasController extends Controller
 {
@@ -44,7 +45,7 @@ class PapeletasController extends Controller
             'PAPELETAFECHAVOTACION' => 'required|date|date_format:Y-m-d|',
         ]);
 
-        $postulantes = Papeletas::create($request->all());
+        $papeletas = Papeletas::create($request->all());
 
         return redirect()->route('papeletas.index')
             ->with('success', 'papeleta created successfully.');
@@ -70,7 +71,7 @@ class PapeletasController extends Controller
      */
     public function edit($PAPELETANUMERO)
     {
-        $papeletas = Postulantes::findOrFail($PAPELETANUMERO);
+        $papeletas = Papeletas::findOrFail($PAPELETANUMERO);
         return view('papeletas.edit', compact('papeletas'));
     }
 
@@ -89,7 +90,7 @@ class PapeletasController extends Controller
             'PAPELETATIPO' => 'bail|required|max:3',
             'PAPELETAFECHAVOTACION' => 'required|date|date_format:Y-m-d|',
         ]);
-        $papeletas = Postulantes::findOrFail($PAPELETANUMERO);
+        $papeletas = Papeletas::findOrFail($PAPELETANUMERO);
         $papeletas->update($request->all());
 
         return redirect()->route('papeletas.index')
@@ -104,7 +105,7 @@ class PapeletasController extends Controller
      */
     public function destroy($PAPELETANUMERO)
     {
-        $papeletas = Papeleta::findOrFail($PAPELETANUMERO);
+        $papeletas = Papeletas::findOrFail($PAPELETANUMERO);
         $papeletas->delete();
 
         return redirect()->route('papeletas.index')

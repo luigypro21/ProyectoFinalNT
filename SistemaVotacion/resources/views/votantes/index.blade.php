@@ -47,7 +47,7 @@
         <td>{{ $votante->VOTANTETIPO }}</td>
         <td>{{ $votante->VOTANTECODIGOBARRAS }}</td>
         <td>
-            @if($postulante->VOTANTEFOTO)
+            @if($votante->VOTANTEFOTO)
                 <img src="{{$votante->get_image}}" class="card-img-top">
             @endif
         </td>
