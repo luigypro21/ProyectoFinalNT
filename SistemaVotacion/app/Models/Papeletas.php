@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Papeletas extends Model
 {
-    use HasFactory;
+    //PAPELETANUMERO, VOTANTECEDULA, PAPELETATIPO, PAPELETAFECHAVOTACION
+    public $timestamps = false;
+    protected $primaryKey = 'PAPELETANUMERO';
+    public $incrementing = false;
+    protected $fillable = [
+        'PAPELETANUMERO', 'VOTANTECEDULA', 'PAPELETATIPO', 'PAPELETAFECHAVOTACION'
+    ];
+
 }
