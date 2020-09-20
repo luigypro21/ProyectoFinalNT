@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::resource('postulantes', 'App\Http\Controllers\PostulantesController');
+Route::resource('votantes', 'App\Http\Controllers\VotantesController');
+Route::resource('postulantes', 'App\Http\Controllers\PapeletasController');

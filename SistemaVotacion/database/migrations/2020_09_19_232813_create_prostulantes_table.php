@@ -17,13 +17,13 @@ class CreateProstulantesTable extends Migration
         //'POSTULANTEFOTOLISTA','CANTIDADVOTOS','TIPOVOTO'
         Schema::create('postulantes', function (Blueprint $table) {
             $table->string('POSTULANTEID');
-            $table->iteger('PAPELETANUMERO');
-            $table->iteger('VOTANTECEDULA');
+            $table->integer('PAPELETANUMERO');
+            $table->integer('VOTANTECEDULA');
             $table->string('POSTULANTECARGO');
             $table->string('POSTULANTEPARTIDO');
-            $table->iteger('POSTULANTENUMEROLISTA');
+            $table->integer('POSTULANTENUMEROLISTA');
             $table->binary('POSTULANTEFOTOLISTA');
-            $table->iteger('CANTIDADVOTOS');
+            $table->integer('CANTIDADVOTOS');
             $table->string('TIPOVOTO');
             $table->timestamps();
         });

@@ -14,7 +14,8 @@ class PapeletasController extends Controller
      */
     public function index()
     {
-        //
+        $papeletas = Papeletas::all();
+        return view('papeletas.index', compact('papeletas'));
     }
 
     /**
@@ -24,7 +25,7 @@ class PapeletasController extends Controller
      */
     public function create()
     {
-        //
+        return view('papeletas.create');
     }
 
     /**
@@ -35,7 +36,18 @@ class PapeletasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //Validation parameters bail|required|unique:posts|max:255
+         $request->validate([
+            'PAPELETANUMERO' => 'bail|required|max:3',
+            'VOTANTECEDULA' => 'bail|required|max:10',
+            'PAPELETATIPO' => 'bail|required|max:3',
+            'PAPELETAFECHAVOTACION' => 'required|date|date_format:Y-m-d|',
+        ]);
+
+        $postulantes = Papeletas::create($request->all());
+
+        return redirect()->route('papeletas.index')
+            ->with('success', 'papeleta created successfully.');
     }
 
     /**
@@ -44,9 +56,10 @@ class PapeletasController extends Controller
      * @param  \App\Models\Papeletas  $papeletas
      * @return \Illuminate\Http\Response
      */
-    public function show(Papeletas $papeletas)
+    public function show($PAPELETANUMERO)
     {
-        //
+        $papeletas = Papeletas::findOrFail($PAPELETANUMERO);
+        return view('papeletas.show', compact('papeletas'));
     }
 
     /**
@@ -55,9 +68,10 @@ class PapeletasController extends Controller
      * @param  \App\Models\Papeletas  $papeletas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Papeletas $papeletas)
+    public function edit($PAPELETANUMERO)
     {
-        //
+        $papeletas = Postulantes::findOrFail($PAPELETANUMERO);
+        return view('papeletas.edit', compact('papeletas'));
     }
 
     /**
@@ -67,9 +81,19 @@ class PapeletasController extends Controller
      * @param  \App\Models\Papeletas  $papeletas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Papeletas $papeletas)
+    public function update(Request $request, $PAPELETANUMERO)
     {
-        //
+        $request->validate([
+            'PAPELETANUMERO' => 'bail|required|max:3',
+            'VOTANTECEDULA' => 'bail|required|max:10',
+            'PAPELETATIPO' => 'bail|required|max:3',
+            'PAPELETAFECHAVOTACION' => 'required|date|date_format:Y-m-d|',
+        ]);
+        $papeletas = Postulantes::findOrFail($PAPELETANUMERO);
+        $papeletas->update($request->all());
+
+        return redirect()->route('papeletas.index')
+            ->with('success', 'papeleta updated successfully');
     }
 
     /**
@@ -78,8 +102,12 @@ class PapeletasController extends Controller
      * @param  \App\Models\Papeletas  $papeletas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Papeletas $papeletas)
+    public function destroy($PAPELETANUMERO)
     {
-        //
+        $papeletas = Papeleta::findOrFail($PAPELETANUMERO);
+        $papeletas->delete();
+
+        return redirect()->route('papeletas.index')
+            ->with('success', 'papeleta deleted successfully');
     }
 }

@@ -13,8 +13,20 @@ class CreateVotantesTable extends Migration
      */
     public function up()
     {
+        //VOTANTECEDULA, VOTANTENOMBRES, VOTANTEAPELLIDOS, VOTANTEFECHANACIMIENTO, VOTANTEPROVINCIA, 
+        //VOTANTECANTON, VOTANTECIRCUNSCRIPCION, VOTANTEPARROQUIA, VOTANTETIPO, VOTANTECODIGOBARRAS,VOTANTEFOTO
         Schema::create('votantes', function (Blueprint $table) {
-            $table->id();
+            $table->integer('VOTANTECEDULA');
+            $table->string('VOTANTENOMBRES');
+            $table->string('VOTANTEAPELLIDOS');
+            $table->date('VOTANTEFECHANACIMIENTO');
+            $table->string('VOTANTEPROVINCIA');
+            $table->string('VOTANTECANTON');
+            $table->integer('VOTANTECIRCUNSCRIPCION');
+            $table->string('VOTANTEPARROQUIA');
+            $table->string('VOTANTETIPO');
+            $table->integer('VOTANTECODIGOBARRAS');
+            $table->binary('VOTANTEFOTO');
             $table->timestamps();
         });
     }

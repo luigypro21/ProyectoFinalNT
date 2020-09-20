@@ -13,9 +13,12 @@ class CreatePapeletasTable extends Migration
      */
     public function up()
     {
+       //PAPELETANUMERO, VOTANTECEDULA, PAPELETATIPO, PAPELETAFECHAVOTACION 
         Schema::create('papeletas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->integer('PAPELETANUMERO');
+            $table->iteger('VOTANTECEDULA');
+            $table->string('PAPELETATIPO');
+            $table->date('PAPELETAFECHAVOTACION');
         });
     }
 
