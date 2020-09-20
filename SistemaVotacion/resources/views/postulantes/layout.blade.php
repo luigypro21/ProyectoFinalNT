@@ -4,6 +4,7 @@
 <head>
     <title>SISTEMA VOTACION</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <style class="cp-pen-styles">
        
 

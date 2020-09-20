@@ -14,10 +14,8 @@ class PostulantesController extends Controller
      */
     public function index()
     {
-        $postulantes = Postulantes::orderBy('POSTULANTESID');
-  
-        return view('postulantes.index',compact('postulantes'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $postulantes = Postulantes::all();
+        return view('postulantes.index', compact('postulantes'));
     }
 
     /**
@@ -50,11 +48,11 @@ class PostulantesController extends Controller
             'CANTIDADVOTOS' => 'bail|required',
             'TIPOVOTO' => 'bail|required|max:50',
         ]);
-  
+
         Postulantes::create($request->all());
-   
+
         return redirect()->route('postulantes.index')
-                        ->with('success','postulante created successfully.');
+            ->with('success', 'postulante created successfully.');
     }
 
     /**
@@ -63,9 +61,10 @@ class PostulantesController extends Controller
      * @param  \App\Models\Postulantes  $postulantes
      * @return \Illuminate\Http\Response
      */
-    public function show(Postulantes $postulantes)
+    public function show($POSTULANTEID)
     {
-        return view('postulantes.show',compact('postulante'));
+        $postulantes = Postulantes::findOrFail($POSTULANTEID);
+        return view('postulantes.show', compact('postulantes'));
     }
 
     /**
@@ -74,9 +73,10 @@ class PostulantesController extends Controller
      * @param  \App\Models\Postulantes  $postulantes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Postulantes $postulantes)
+    public function edit( $POSTULANTEID)
     {
-        return view('postulantes.edit',compact('postulante'));
+        $postulantes = Postulantes::findOrFail($POSTULANTEID);
+        return view('postulantes.edit', compact('postulantes'));
     }
 
     /**
@@ -86,17 +86,25 @@ class PostulantesController extends Controller
      * @param  \App\Models\Postulantes  $postulantes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Postulantes $postulantes)
+    public function update(Request $request, $POSTULANTEID)
     {
         $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
+            'POSTULANTEID' => 'bail|required|max:10',
+            'PAPELETANUMERO' => 'bail|required|max:3',
+            'VOTANTECEDULA' => 'bail|required|max:10',
+            'POSTULANTECARGO' => 'bail|required|max:30',
+            'POSTULANTEPARTIDO' => 'bail|required|max:50',
+            'POSTULANTENUMEROLISTA' => 'bail|required|max:2',
+            'POSTULANTEFOTOLISTA' => 'bail|required',
+            'CANTIDADVOTOS' => 'bail|required',
+            'TIPOVOTO' => 'bail|required|max:50',
         ]);
-  
+        
+        $postulantes = Postulantes::findOrFail($POSTULANTEID);
         $postulantes->update($request->all());
-  
+
         return redirect()->route('postulantes.index')
-                        ->with('success','postulante updated successfully');
+            ->with('success', 'postulante updated successfully');
     }
 
     /**
@@ -108,8 +116,8 @@ class PostulantesController extends Controller
     public function destroy(Postulantes $postulantes)
     {
         $postulantes->delete();
-  
+
         return redirect()->route('postulantes.index')
-                        ->with('success','postulante deleted successfully');
+            ->with('success', 'postulante deleted successfully');
     }
 }

@@ -8,7 +8,7 @@
 		<Model Expanded="Yes" ID="{675AD661-023B-4D89-B8B5-0E7040A8A1E2}" Loaded="No" Name="Sistema_Votacion2" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Sistema_Votacion2.pdm"/>
 		<Model Expanded="Yes" ID="{6CA3D3F7-D963-49B0-A42E-53C8C387E859}" Loaded="No" Name="Sistema_Votacion3" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Sistema_Votacion3.pdm"/>
 		<Model Expanded="Yes" ID="{47FA67BF-7BBB-4B91-AC92-497A001A98F8}" Loaded="No" Name="Sistema_Votacion_LM" Type="{5F45F978-C4F3-4E35-A3FC-AF3318663A0F}" URL="Sistema_Votacion_LM.ldm"/>
-		<Model Expanded="Yes" ID="{D50752F2-A154-43CA-9C0F-A9C36A300A4E}" Name="Sistema_Votacion_PM" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Sistema_Votacion_PM.pdm"/>
+		<Model Expanded="Yes" ID="{D50752F2-A154-43CA-9C0F-A9C36A300A4E}" Loaded="No" Name="Sistema_Votacion_PM" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Sistema_Votacion_PM.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>
