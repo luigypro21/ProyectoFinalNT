@@ -181,6 +181,10 @@
             width: 100px;
             height: 100px;
         }
+        img{
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
