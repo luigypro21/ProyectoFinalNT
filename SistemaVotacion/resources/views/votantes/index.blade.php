@@ -52,11 +52,11 @@
             @endif
         </td>
         <td>
-            <form action="{{ route('votantes.destroy',$postulante->VOTANTECEDULA) }}" method="POST">
+            <form action="{{ route('votantes.destroy',$votante->VOTANTECEDULA) }}" method="POST">
 
-                <a class="btn btn-info" href="{{ route('votantes.show',$postulante->VOTANTECEDULA) }}">VER</a>
+                <a class="btn btn-info" href="{{ route('votantes.show',$votante->VOTANTECEDULA) }}">VER</a>
 
-                <a class="btn btn-primary" href="{{ route('votantes.edit',$postulante->VOTANTECEDULA) }}">EDITAR</a>
+                <a class="btn btn-primary" href="{{ route('votantes.edit',$votante->VOTANTECEDULA) }}">EDITAR</a>
 
                 @csrf
                 @method('DELETE')
