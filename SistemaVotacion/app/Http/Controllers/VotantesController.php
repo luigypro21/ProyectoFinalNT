@@ -49,13 +49,14 @@ class VotantesController extends Controller
             'VOTANTEPARROQUIA' => 'bail|required|max:30',
             'VOTANTETIPO' => 'bail|required|max:3',
             'VOTANTECODIGOBARRAS' => 'bail|required|max:13',
+            'VOTANTEFOTO' => 'bail|required',
         ]);
 
         $votantes = Votantes::create($request->all());
 
         if ($request->file('VOTANTEFOTO')) {
             
-            $votantes->POSTULANTEFOTOLISTA = $request->file('VOTANTEFOTO')->store('votantes', 'public');
+            $votantes->VOTANTEFOTO = $request->file('VOTANTEFOTO')->store('votantes', 'public');
             $votantes->save();
         }
 
@@ -107,6 +108,7 @@ class VotantesController extends Controller
             'VOTANTEPARROQUIA' => 'bail|required|max:30',
             'VOTANTETIPO' => 'bail|required|max:3',
             'VOTANTECODIGOBARRAS' => 'bail|required|max:13',
+            'VOTANTEFOTO' => 'bail|required',
         ]);
         $votantes = Votantes::findOrFail($VOTANTECEDULA);
         $votantes->update($request->all());
