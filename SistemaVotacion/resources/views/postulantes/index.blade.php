@@ -39,7 +39,11 @@
         <td>{{ $postulante->POSTULANTECARGO }}</td>
         <td>{{ $postulante->POSTULANTEPARTIDO }}</td>
         <td>{{ $postulante->POSTULANTENUMEROLISTA }}</td>
-        <td>{{ $postulante->POSTULANTEFOTOLISTA }}</td>
+        <td>
+            @if($postulante->POSTULANTEFOTOLISTA)
+                <img src="{{$postulante->get_image}}" class="card-img-top">
+            @endif
+        </td>
         <td>{{ $postulante->CANTIDADVOTOS }}</td>
         <td>{{ $postulante->TIPOVOTO }}</td>
         <td>

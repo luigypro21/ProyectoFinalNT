@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Postulantes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostulantesController extends Controller
 {
@@ -49,7 +50,13 @@ class PostulantesController extends Controller
             'TIPOVOTO' => 'bail|required|max:50',
         ]);
 
-        Postulantes::create($request->all());
+        $postulantes = Postulantes::create($request->all());
+
+        if ($request->file('POSTULANTEFOTOLISTA')) {
+            
+            $postulantes->POSTULANTEFOTOLISTA = $request->file('POSTULANTEFOTOLISTA')->store('postulantes', 'public');
+            $postulantes->save();
+        }
 
         return redirect()->route('postulantes.index')
             ->with('success', 'postulante created successfully.');
@@ -73,7 +80,7 @@ class PostulantesController extends Controller
      * @param  \App\Models\Postulantes  $postulantes
      * @return \Illuminate\Http\Response
      */
-    public function edit( $POSTULANTEID)
+    public function edit($POSTULANTEID)
     {
         $postulantes = Postulantes::findOrFail($POSTULANTEID);
         return view('postulantes.edit', compact('postulantes'));
@@ -99,9 +106,15 @@ class PostulantesController extends Controller
             'CANTIDADVOTOS' => 'bail|required',
             'TIPOVOTO' => 'bail|required|max:50',
         ]);
-        
+
         $postulantes = Postulantes::findOrFail($POSTULANTEID);
         $postulantes->update($request->all());
+
+        if ($request->file('POSTULANTEFOTOLISTA')) {
+            Storage::disk('public')->delete($postulantes->POSTULANTEFOTOLISTA);
+            $postulantes->POSTULANTEFOTOLISTA = $request->file('POSTULANTEFOTOLISTA')->store('postulantes', 'public');
+            $postulantes->save();
+        }
 
         return redirect()->route('postulantes.index')
             ->with('success', 'postulante updated successfully');
@@ -113,8 +126,10 @@ class PostulantesController extends Controller
      * @param  \App\Models\Postulantes  $postulantes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Postulantes $postulantes)
+    public function destroy($POSTULANTEID)
     {
+        $postulantes = Postulantes::findOrFail($POSTULANTEID);
+        Storage::disk('public')->delete($postulantes->POSTULANTEFOTOLISTA);
         $postulantes->delete();
 
         return redirect()->route('postulantes.index')

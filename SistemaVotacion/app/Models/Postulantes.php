@@ -11,7 +11,14 @@ class Postulantes extends Model
     protected $primaryKey = 'POSTULANTEID';
     public $incrementing = false;
     protected $fillable = [
-        'POSTULANTEID', 'PAPELETANUMERO','VOTANTECEDULA','POSTULANTECARGO','POSTULANTEPARTIDO','POSTULANTENUMEROLISTA',
-        'POSTULANTEFOTOLISTA','CANTIDADVOTOS','TIPOVOTO'
+        'POSTULANTEID', 'PAPELETANUMERO', 'VOTANTECEDULA', 'POSTULANTECARGO', 'POSTULANTEPARTIDO', 'POSTULANTENUMEROLISTA',
+        'POSTULANTEFOTOLISTA', 'CANTIDADVOTOS', 'TIPOVOTO'
     ];
+
+    public function getGetImageAttribute()
+    {
+        if ($this->POSTULANTEFOTOLISTA) {
+            return url("storage/$this->POSTULANTEFOTOLISTA");
+        }
+    }
 }
