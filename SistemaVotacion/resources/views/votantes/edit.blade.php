@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Edit postulante</h2>
+            <h2>Editar Votante</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('votantes.index') }}"> Back</a>
@@ -22,9 +22,7 @@
     </ul>
 </div>
 @endif
-//, , , , ,
-//, , , ,  
-//value="{{ $votantes->POSTULANTEID }}" 
+
 <form action="{{ route('votantes.update',$votantes->VOTANTECEDULA )}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
