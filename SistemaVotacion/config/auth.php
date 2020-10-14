@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'votantes',
     ],
 
     /*
@@ -38,12 +38,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'votantes',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'votantes',
             'hash' => false,
         ],
     ],
@@ -69,6 +69,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'votantes' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Votantes::class,
         ],
 
         // 'users' => [
@@ -98,6 +102,11 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+        'votantes' => [
+            'provider' => 'votantes',
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
     ],
 

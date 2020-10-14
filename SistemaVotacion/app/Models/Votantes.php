@@ -4,11 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Votantes extends Model
+class Votantes extends Authenticatable
 {
     //, , , , 
     //, , , , ,  
+    use Notifiable;
+
+    protected $table = 'votantes';
+
+    
     public $timestamps = false;
     protected $primaryKey = 'VOTANTECEDULA';
     public $incrementing = false;
@@ -22,5 +29,15 @@ class Votantes extends Model
         if ($this->VOTANTEFOTO) {
             return url("storage/$this->VOTANTEFOTO");
         }
+    }
+
+    protected $hidden = [
+        'VOTANTECODIGOBARRAS', 'remember_token',
+    ];
+
+
+    public function getAuthPassword()
+    {
+      return $this->VOTANTECODIGOBARRAS;
     }
 }

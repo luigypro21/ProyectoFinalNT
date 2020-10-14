@@ -6,6 +6,7 @@ use App\Models\Votantes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+
 class VotantesController extends Controller
 {
     /**

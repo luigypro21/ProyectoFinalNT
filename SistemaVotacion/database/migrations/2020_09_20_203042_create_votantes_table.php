@@ -16,7 +16,7 @@ class CreateVotantesTable extends Migration
         //VOTANTECEDULA, VOTANTENOMBRES, VOTANTEAPELLIDOS, VOTANTEFECHANACIMIENTO, VOTANTEPROVINCIA, 
         //VOTANTECANTON, VOTANTECIRCUNSCRIPCION, VOTANTEPARROQUIA, VOTANTETIPO, VOTANTECODIGOBARRAS,VOTANTEFOTO
         Schema::create('votantes', function (Blueprint $table) {
-            $table->integer('VOTANTECEDULA');
+            $table->id('VOTANTECEDULA');
             $table->string('VOTANTENOMBRES');
             $table->string('VOTANTEAPELLIDOS');
             $table->date('VOTANTEFECHANACIMIENTO');
@@ -25,7 +25,7 @@ class CreateVotantesTable extends Migration
             $table->integer('VOTANTECIRCUNSCRIPCION');
             $table->string('VOTANTEPARROQUIA');
             $table->string('VOTANTETIPO');
-            $table->integer('VOTANTECODIGOBARRAS');
+            $table->string('VOTANTECODIGOBARRAS');
             $table->binary('VOTANTEFOTO');
             $table->timestamps();
         });
