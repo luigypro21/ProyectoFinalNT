@@ -22,7 +22,8 @@
     </ul>
 </div>
 @endif
-
+//, , , ,
+//, , , , , 
 <form action="{{ route('votantes.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 

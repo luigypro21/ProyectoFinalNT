@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>PAPELETAS</h2>
+            <h2>papeletas</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-success" href="{{ route('papeletas.create') }}"> AÑADIR PAPELETA</a>

@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>VOTANTES</h2>
+            <h2>votantes</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-success" href="{{ route('votantes.create') }}"> AÑADIR VOTANTE</a>
@@ -29,6 +29,7 @@
         <th>CIRCUNSCRIPCIÓN DEL VOTANTE</th>
         <th>PARROQUIA DEL VOTANTE</th>
         <th>TIPO DE VOTANTE</th>
+        <th>PARROQUIA DEL VOTANTE</th>
         <th>CÓDIGO DE BARRAS</th>
         <th>FOTO DEL VOTANTE</th>
     </tr>
