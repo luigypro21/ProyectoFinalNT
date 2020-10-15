@@ -48,6 +48,7 @@ class PostulantesController extends Controller
             'POSTULANTEFOTOLISTA' => 'bail|required',
             'CANTIDADVOTOS' => 'bail|required',
             'TIPOVOTO' => 'bail|required|max:50',
+            'POSTULANTEFOTO' => 'bail|required',
         ]);
 
         $postulantes = Postulantes::create($request->all());
@@ -55,6 +56,12 @@ class PostulantesController extends Controller
         if ($request->file('POSTULANTEFOTOLISTA')) {
             
             $postulantes->POSTULANTEFOTOLISTA = $request->file('POSTULANTEFOTOLISTA')->store('postulantes', 'public');
+            $postulantes->save();
+        }
+
+        if ($request->file('POSTULANTEFOTO')) {
+            
+            $postulantes->POSTULANTEFOTO = $request->file('POSTULANTEFOTO')->store('postulantes', 'public');
             $postulantes->save();
         }
 
@@ -105,6 +112,7 @@ class PostulantesController extends Controller
             'POSTULANTEFOTOLISTA' => 'bail|required',
             'CANTIDADVOTOS' => 'bail|required',
             'TIPOVOTO' => 'bail|required|max:50',
+            'POSTULANTEFOTO' => 'bail|required',
         ]);
 
         $postulantes = Postulantes::findOrFail($POSTULANTEID);
@@ -113,6 +121,12 @@ class PostulantesController extends Controller
         if ($request->file('POSTULANTEFOTOLISTA')) {
             Storage::disk('public')->delete($postulantes->POSTULANTEFOTOLISTA);
             $postulantes->POSTULANTEFOTOLISTA = $request->file('POSTULANTEFOTOLISTA')->store('postulantes', 'public');
+            $postulantes->save();
+        }
+
+        if ($request->file('POSTULANTEFOTO')) {
+            Storage::disk('public')->delete($postulantes->POSTULANTEFOTO);
+            $postulantes->POSTULANTEFOTO = $request->file('POSTULANTEFOTO')->store('postulantes', 'public');
             $postulantes->save();
         }
 
@@ -130,6 +144,7 @@ class PostulantesController extends Controller
     {
         $postulantes = Postulantes::findOrFail($POSTULANTEID);
         Storage::disk('public')->delete($postulantes->POSTULANTEFOTOLISTA);
+        Storage::disk('public')->delete($postulantes->POSTULANTEFOTO);
         $postulantes->delete();
 
         return redirect()->route('postulantes.index')

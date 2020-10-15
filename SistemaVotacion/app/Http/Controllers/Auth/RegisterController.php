@@ -86,7 +86,7 @@ class RegisterController extends Controller
             'VOTANTEPARROQUIA' => $data['VOTANTEPARROQUIA'],
             'VOTANTETIPO' => $data['VOTANTETIPO'],
             'VOTANTECANTON' => $data['VOTANTECANTON'],
-            'VOTANTECODIGOBARRAS' =>  bcrypt('12345'),
+            'VOTANTECODIGOBARRAS' =>  Hash::make('12345'),
             'VOTANTEFOTO' => $data['VOTANTEFOTO'],
         ]);
         $request = request();

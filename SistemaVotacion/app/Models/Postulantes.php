@@ -12,13 +12,16 @@ class Postulantes extends Model
     public $incrementing = false;
     protected $fillable = [
         'POSTULANTEID', 'PAPELETANUMERO', 'VOTANTECEDULA', 'POSTULANTECARGO', 'POSTULANTEPARTIDO', 'POSTULANTENUMEROLISTA',
-        'POSTULANTEFOTOLISTA', 'CANTIDADVOTOS', 'TIPOVOTO'
+        'POSTULANTEFOTOLISTA', 'CANTIDADVOTOS', 'TIPOVOTO','POSTULANTEFOTO'
     ];
 
     public function getGetImageAttribute()
     {
         if ($this->POSTULANTEFOTOLISTA) {
             return url("storage/$this->POSTULANTEFOTOLISTA");
+        }
+        if ($this->POSTULANTEFOTO) {
+            return url("storage/$this->POSTULANTEFOTO");
         }
     }
 }

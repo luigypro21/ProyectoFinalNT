@@ -7,6 +7,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\support\facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 
 class LoginController extends Controller
@@ -23,6 +25,7 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    
 
     /**
      * Where to redirect users after login.
@@ -48,13 +51,21 @@ class LoginController extends Controller
 
 
     public function login(Request $request){
+       $ced=$request->VOTANTECEDULA;
+       $pass=$request->VOTANTECODIGOBARRAS;
+       $query=DB::select("select VOTANTECODIGOBARRAS,VOTANTECEDULA from votantes where VOTANTECEDULA='".$ced."';");
+       $data=$query[0]->VOTANTECODIGOBARRAS;
+       //dd($query[0],$data);
 
-        
-        if (Auth::attempt(['VOTANTECEDULA' => $request->VOTANTECEDULA,'VOTANTECODIGOBARRAS' => $request->VOTANTECODIGOBARRAS], false)){
-    
-             return redirect('/home');
+        /*if (Auth::attempt(['VOTANTECEDULA' => $ced,'VOTANTECODIGOBARRAS' => $pass])){
+            
+             //return redirect('/home');
+             dd('data');
+        }*/
+        if(hash::check($pass,$data)){
+            return view('home', compact('query'));
         }
-    
+        //{{ Auth::user()->VOTANTECODIGOBARRAS }}
         return $this->sendFailedLoginResponse($request);
     }
     

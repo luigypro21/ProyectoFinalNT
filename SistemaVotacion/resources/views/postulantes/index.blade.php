@@ -29,6 +29,7 @@
         <th>FOTO DE LISTA</th>
         <th>VOTOS</th>
         <th>TIPO VOTO</th>
+        <th>FOTO DEL POSTULANTE</th>
     </tr>
 
     @foreach ($postulantes as $postulante)
@@ -46,6 +47,11 @@
         </td>
         <td>{{ $postulante->CANTIDADVOTOS }}</td>
         <td>{{ $postulante->TIPOVOTO }}</td>
+        <td>
+            @if($postulante->POSTULANTEFOTO)
+                <img src="{{$postulante->get_image}}" class="card-img-top">
+            @endif
+        </td>
         <td>
             <form action="{{ route('postulantes.destroy',$postulante->POSTULANTEID) }}" method="POST">
 

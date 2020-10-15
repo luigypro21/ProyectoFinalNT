@@ -25,6 +25,7 @@ class CreateProstulantesTable extends Migration
             $table->binary('POSTULANTEFOTOLISTA');
             $table->integer('CANTIDADVOTOS');
             $table->string('TIPOVOTO');
+            $table->binary('POSTULANTEFOTO');
             $table->timestamps();
         });
     }

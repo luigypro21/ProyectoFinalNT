@@ -89,6 +89,19 @@
                 </div>
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>FOTO DEL CANDIDATO:</strong>
+                <div class='box'>
+                    <div class="js--image-preview"></div>
+                    <div class="upload-options">
+                        <label>
+                            <input type="file" name="POSTULANTEFOTO" class="image-upload" accept="image/*" />
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-primary">ENVIAR</button>
         </div>
