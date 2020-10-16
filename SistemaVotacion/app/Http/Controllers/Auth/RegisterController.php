@@ -75,6 +75,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $password=Str::random(5);
+        $pass=[$password];
         $votantes= Votantes::create([
             'VOTANTECEDULA' => $data['VOTANTECEDULA'],
             'VOTANTENOMBRES' => $data['VOTANTENOMBRES'],
@@ -86,7 +88,7 @@ class RegisterController extends Controller
             'VOTANTEPARROQUIA' => $data['VOTANTEPARROQUIA'],
             'VOTANTETIPO' => $data['VOTANTETIPO'],
             'VOTANTECANTON' => $data['VOTANTECANTON'],
-            'VOTANTECODIGOBARRAS' =>  Hash::make('12345'),
+            'VOTANTECODIGOBARRAS' =>  Hash::make($password),
             'VOTANTEFOTO' => $data['VOTANTEFOTO'],
         ]);
         $request = request();
@@ -97,7 +99,7 @@ class RegisterController extends Controller
             $votantes->VOTANTEFOTO = $profileImage->store('votantes', 'public');
             $votantes->save();
         }
-        return $votantes;
+        return view('/home',compact('pass'));
     }
 
     // public function generateBarcode(Request $request){

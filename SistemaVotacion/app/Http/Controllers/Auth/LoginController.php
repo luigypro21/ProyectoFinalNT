@@ -66,9 +66,10 @@ class LoginController extends Controller
              dd('data');
         }*/
         if (hash::check($pass, $data)) {
-            $postulantes = Postulantes::all();
+           
             $votantes = Votantes::findOrFail($ced);
-            return view('home', compact('postulantes','votantes'));
+            Auth::login($votantes);
+            return view('/home');
         }
         //{{ Auth::user()->VOTANTECODIGOBARRAS }}
         //{{ Crypt::decrypt($query[0]->VOTANTECODIGOBARRAS) }}
