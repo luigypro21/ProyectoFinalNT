@@ -35,6 +35,18 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>NOMBRE:</strong>
+                <input type="text" name="POSTULANTENOMBRE" class="form-control" placeholder="Nombre">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>APELLIDO:</strong>
+                <input type="text" name="POSTULANTEAPELLIDO" class="form-control" placeholder="Apellido">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>NUMERO DE PAPEPELTA:</strong>
                 <input type="text" name="PAPELETANUMERO" class="form-control" placeholder="NUMERO DE PAPEPELTA">
             </div>
@@ -97,6 +109,31 @@
                     <div class="upload-options">
                         <label>
                             <input type="file" name="POSTULANTEFOTO" class="image-upload" accept="image/*" />
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>NOMBRE VICE:</strong>
+                <input type="text" name="VICENOMBRE" class="form-control" placeholder="Nombre">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>APELLIDO VICE:</strong>
+                <input type="text" name="VICEAPELLIDO" class="form-control" placeholder="Apellido">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>FOTO VICE:</strong>
+                <div class='box'>
+                    <div class="js--image-preview"></div>
+                    <div class="upload-options">
+                        <label>
+                            <input type="file" name="VICEFOTO" class="image-upload" accept="image/*" />
                         </label>
                     </div>
                 </div>

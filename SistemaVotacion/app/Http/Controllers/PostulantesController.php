@@ -43,12 +43,17 @@ class PostulantesController extends Controller
             'PAPELETANUMERO' => 'bail|required|max:3',
             'VOTANTECEDULA' => 'bail|required|max:10',
             'POSTULANTECARGO' => 'bail|required|max:30',
-            'POSTULANTEPARTIDO' => 'bail|required|max:50',
-            'POSTULANTENUMEROLISTA' => 'bail|required|max:2',
+            'POSTULANTEPARTIDO' => 'bail|required|max:200',
+            'POSTULANTENUMEROLISTA' => 'bail|required|max:5',
             'POSTULANTEFOTOLISTA' => 'bail|required',
             'CANTIDADVOTOS' => 'bail|required',
             'TIPOVOTO' => 'bail|required|max:50',
             'POSTULANTEFOTO' => 'bail|required',
+            'POSTULANTENOMBRE' => 'bail|required|max:30',
+            'POSTULANTEAPELLIDO' => 'bail|required|max:30',
+            'VICENOMBRE' => 'bail|required|max:30',
+            'VICEAPELLIDO' => 'bail|required|max:30',
+            'VICEFOTO' => 'bail|required',
         ]);
 
         $postulantes = Postulantes::create($request->all());
@@ -62,6 +67,12 @@ class PostulantesController extends Controller
         if ($request->file('POSTULANTEFOTO')) {
             
             $postulantes->POSTULANTEFOTO = $request->file('POSTULANTEFOTO')->store('postulantes', 'public');
+            $postulantes->save();
+        }
+
+        if ($request->file('VICEFOTO')) {
+            
+            $postulantes->VICEFOTO = $request->file('VICEFOTO')->store('postulantes', 'public');
             $postulantes->save();
         }
 
@@ -107,12 +118,17 @@ class PostulantesController extends Controller
             'PAPELETANUMERO' => 'bail|required|max:3',
             'VOTANTECEDULA' => 'bail|required|max:10',
             'POSTULANTECARGO' => 'bail|required|max:30',
-            'POSTULANTEPARTIDO' => 'bail|required|max:50',
-            'POSTULANTENUMEROLISTA' => 'bail|required|max:2',
+            'POSTULANTEPARTIDO' => 'bail|required|max:200',
+            'POSTULANTENUMEROLISTA' => 'bail|required|max:5',
             'POSTULANTEFOTOLISTA' => 'bail|required',
             'CANTIDADVOTOS' => 'bail|required',
             'TIPOVOTO' => 'bail|required|max:50',
             'POSTULANTEFOTO' => 'bail|required',
+            'POSTULANTENOMBRE' => 'bail|required|max:30',
+            'POSTULANTEAPELLIDO' => 'bail|required|max:30',
+            'VICENOMBRE' => 'bail|required|max:30',
+            'VICEAPELLIDO' => 'bail|required|max:30',
+            'VICEFOTO' => 'bail|required',
         ]);
 
         $postulantes = Postulantes::findOrFail($POSTULANTEID);
@@ -127,6 +143,12 @@ class PostulantesController extends Controller
         if ($request->file('POSTULANTEFOTO')) {
             Storage::disk('public')->delete($postulantes->POSTULANTEFOTO);
             $postulantes->POSTULANTEFOTO = $request->file('POSTULANTEFOTO')->store('postulantes', 'public');
+            $postulantes->save();
+        }
+
+        if ($request->file('VICEFOTO')) {
+            Storage::disk('public')->delete($postulantes->VICEFOTO);
+            $postulantes->VICEFOTO = $request->file('VICEFOTO')->store('postulantes', 'public');
             $postulantes->save();
         }
 
@@ -145,6 +167,7 @@ class PostulantesController extends Controller
         $postulantes = Postulantes::findOrFail($POSTULANTEID);
         Storage::disk('public')->delete($postulantes->POSTULANTEFOTOLISTA);
         Storage::disk('public')->delete($postulantes->POSTULANTEFOTO);
+        Storage::disk('public')->delete($postulantes->VICEFOTO);
         $postulantes->delete();
 
         return redirect()->route('postulantes.index')

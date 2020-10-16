@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\support\facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Postulantes;
+use App\Models\Votantes;
 
 
 class LoginController extends Controller
@@ -25,7 +27,7 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-    
+
 
     /**
      * Where to redirect users after login.
@@ -50,25 +52,29 @@ class LoginController extends Controller
     }
 
 
-    public function login(Request $request){
-       $ced=$request->VOTANTECEDULA;
-       $pass=$request->VOTANTECODIGOBARRAS;
-       $query=DB::select("select VOTANTECODIGOBARRAS,VOTANTECEDULA from votantes where VOTANTECEDULA='".$ced."';");
-       $data=$query[0]->VOTANTECODIGOBARRAS;
-       //dd($query[0],$data);
+    public function login(Request $request)
+    {
+        $ced = $request->VOTANTECEDULA;
+        $pass = $request->VOTANTECODIGOBARRAS;
+        $query = DB::select("select VOTANTECODIGOBARRAS,VOTANTECEDULA from votantes where VOTANTECEDULA='" . $ced . "';");
+        $data = $query[0]->VOTANTECODIGOBARRAS;
+        //dd($query[0],$data);
 
         /*if (Auth::attempt(['VOTANTECEDULA' => $ced,'VOTANTECODIGOBARRAS' => $pass])){
             
              //return redirect('/home');
              dd('data');
         }*/
-        if(hash::check($pass,$data)){
-            return view('home', compact('query'));
+        if (hash::check($pass, $data)) {
+            $postulantes = Postulantes::all();
+            $votantes = Votantes::findOrFail($ced);
+            return view('home', compact('postulantes','votantes'));
         }
         //{{ Auth::user()->VOTANTECODIGOBARRAS }}
+        //{{ Crypt::decrypt($query[0]->VOTANTECODIGOBARRAS) }}
         return $this->sendFailedLoginResponse($request);
     }
-    
+
     protected function validateLogin(Request $request)
     {
         $this->validate($request, [
@@ -80,6 +86,4 @@ class LoginController extends Controller
     {
         return $request->only($this->username(), 'VOTANTECODIGOBARRAS');
     }
-
-   
 }

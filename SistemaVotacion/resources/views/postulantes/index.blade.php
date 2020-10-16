@@ -21,6 +21,8 @@
 <table class="table table-bordered">
     <tr>
         <th>ID</th>
+        <th>NOMBRE</th>
+        <th>APELLIDO</th>
         <th>NÚMERO DE PAPELETA</th>
         <th>CÉDULA</th>
         <th>CARGO</th>
@@ -30,11 +32,16 @@
         <th>VOTOS</th>
         <th>TIPO VOTO</th>
         <th>FOTO DEL POSTULANTE</th>
+        <th>NOMBRE VICE</th>
+        <th>APELLIDO VICE</th>
+        <th>FOTO VICE</th>
     </tr>
 
     @foreach ($postulantes as $postulante)
     <tr>
         <td>{{ $postulante->POSTULANTEID }}</td>
+        <td>{{ $postulante->POSTULANTENOMBRE}}</td>
+        <td>{{ $postulante->POSTULANTEAPELLIDO }}</td>
         <td>{{ $postulante->PAPELETANUMERO }}</td>
         <td>{{ $postulante->VOTANTECEDULA }}</td>
         <td>{{ $postulante->POSTULANTECARGO }}</td>
@@ -49,7 +56,14 @@
         <td>{{ $postulante->TIPOVOTO }}</td>
         <td>
             @if($postulante->POSTULANTEFOTO)
-                <img src="{{$postulante->get_image}}" class="card-img-top">
+                <img src="{{$postulante->get_image2}}" class="card-img-top">
+            @endif
+        </td>
+        <td>{{ $postulante->VICENOMBRE}}</td>
+        <td>{{ $postulante->VICEAPELLIDO }}</td>
+        <td>
+            @if($postulante->VICEFOTO)
+                <img src="{{$postulante->get_image3}}" class="card-img-top">
             @endif
         </td>
         <td>

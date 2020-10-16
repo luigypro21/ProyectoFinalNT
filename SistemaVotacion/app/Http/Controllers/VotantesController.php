@@ -38,8 +38,8 @@ class VotantesController extends Controller
      */
     public function store(Request $request)
     {
-         //Validation parameters bail|required|unique:posts|max:255
-         $request->validate([
+        //Validation parameters bail|required|unique:posts|max:255
+        $request->validate([
             'VOTANTECEDULA' => 'bail|required|max:10',
             'VOTANTENOMBRES' => 'bail|required|max:30',
             'VOTANTEAPELLIDOS' => 'bail|required|max:30',
@@ -56,7 +56,7 @@ class VotantesController extends Controller
         $votantes = Votantes::create($request->all());
 
         if ($request->file('VOTANTEFOTO')) {
-            
+
             $votantes->VOTANTEFOTO = $request->file('VOTANTEFOTO')->store('votantes', 'public');
             $votantes->save();
         }
@@ -73,8 +73,11 @@ class VotantesController extends Controller
      */
     public function show($VOTANTECEDULA)
     {
+        // $votantes = Votantes::findOrFail($VOTANTECEDULA);
+        // return view('votantes.show', compact('votantes'));
+
         $votantes = Votantes::findOrFail($VOTANTECEDULA);
-        return view('votantes.show', compact('votantes'));
+        return view('votantes.idCard', compact('votantes'));
     }
 
     /**
@@ -139,4 +142,5 @@ class VotantesController extends Controller
         return redirect()->route('votantes.index')
             ->with('success', 'votante deleted successfully');
     }
+    
 }
