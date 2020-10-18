@@ -55,9 +55,9 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $ced = $request->VOTANTECEDULA;
-        $pass = $request->VOTANTECODIGOBARRAS;
-        $query = DB::select("select VOTANTECODIGOBARRAS,VOTANTECEDULA from votantes where VOTANTECEDULA='" . $ced . "';");
-        $data = $query[0]->VOTANTECODIGOBARRAS;
+        $pass = $request->VOTANTEPASSWORD;
+        $query = DB::select("select VOTANTEPASSWORD,VOTANTECEDULA from votantes where VOTANTECEDULA='" . $ced . "';");
+        $data = $query[0]->VOTANTEPASSWORD;
         //dd($query[0],$data);
 
         /*if (Auth::attempt(['VOTANTECEDULA' => $ced,'VOTANTECODIGOBARRAS' => $pass])){
@@ -79,12 +79,12 @@ class LoginController extends Controller
     protected function validateLogin(Request $request)
     {
         $this->validate($request, [
-            $this->username() => 'required', 'VOTANTECODIGOBARRAS' => 'required',
+            $this->username() => 'required', 'VOTANTEPASSWORD' => 'required',
         ]);
     }
 
     protected function credentials(Request $request)
     {
-        return $request->only($this->username(), 'VOTANTECODIGOBARRAS');
+        return $request->only($this->username(), 'VOTANTEPASSWORD');
     }
 }

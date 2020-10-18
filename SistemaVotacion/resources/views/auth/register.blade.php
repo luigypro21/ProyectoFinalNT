@@ -26,6 +26,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="VOTANTEPASSWORD" class="col-md-4 col-form-label text-md-right">PASSWORD</label>
+
+                            <div class="col-md-6">
+                                <input id="VOTANTEPASSWORD" type="password" class="form-control @error('VOTANTEPASSWORD') is-invalid @enderror" name="VOTANTEPASSWORD" value="{{ old('VOTANTEPASSWORD') }}" required autocomplete="VOTANTEPASSWORD" autofocus>
+
+                                @error('VOTANTEPASSWORD')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="VOTANTENOMBRES" class="col-md-4 col-form-label text-md-right">NOMBRES</label>
 
                             <div class="col-md-6">

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Votantes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\Postulantes;
 
 class VotantesController extends Controller
 {
@@ -75,9 +75,11 @@ class VotantesController extends Controller
     {
         // $votantes = Votantes::findOrFail($VOTANTECEDULA);
         // return view('votantes.show', compact('votantes'));
-
-        $votantes = Votantes::findOrFail($VOTANTECEDULA);
-        return view('votantes.idCard', compact('votantes'));
+        // $postulantes = Postulantes::findOrFail($selectedPostulante);
+        // $postulantes->update([
+        //     'CANTIDADVOTOS' => $postulantes->CANTIDADVOTOS+1,]);
+        
+        return view('votantes.idCard');
     }
 
     /**

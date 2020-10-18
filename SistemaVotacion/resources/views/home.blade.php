@@ -20,17 +20,17 @@
                     $postulantes = Postulantes::all();
                     @endphp
 
-                    @if($date=="2021-02-08")
-                    {{ __('¡Todo listo, ya estás registrado!, para continuar con el proceso de votación ingresa el día 2021-02-08 con el código : ')}}
-                       
-                            
-                        
+                    @if($date!="2021-02-08")
+                    {{ __('¡Todo listo, ya estás registrado!, para continuar con el proceso de votación ingresa el día 2021-02-08 con tu cedula y contraseña ')}}
+
+
+
                     @else
                     <div class="candidatos-tittle">
                         <h2>Candidatos Presidenciales</h2>
                     </div>
                     <div class="card-postulantes">
-                        <form >
+                        <form method="POST">
                             @foreach ($postulantes as $postulante)
                             <div class="card item" style="width: 18rem;">
                                 <div class="card-body" style="text-align: center;">
@@ -58,13 +58,15 @@
                                 </div>
                                 <div class="card-body" style="text-align: center;">
                                     <label class="radio-inline" style="font-size: 20px;">
-                                        <input type="radio" name="optradio"> VOTAR
+                                        <input type="radio" name="optradio" value="{{$postulante->POSTULANTEID}}"> VOTAR
                                     </label>
                                 </div>
                             </div>
                             @endforeach
                             
                         </form>
+                        
+                       
                         <a class="btn btn-info" href="{{ route('votantes.show',Auth::user()->VOTANTECEDULA) }}">VER</a>
                     </div>
                     @endif

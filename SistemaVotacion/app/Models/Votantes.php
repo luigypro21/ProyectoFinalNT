@@ -21,7 +21,7 @@ class Votantes extends Authenticatable
     public $incrementing = false;
     protected $fillable = [
         'VOTANTECEDULA', 'VOTANTENOMBRES', 'VOTANTEAPELLIDOS', 'VOTANTEFECHANACIMIENTO', 'VOTANTEPROVINCIA', 'VOTANTECANTON',
-        'VOTANTECIRCUNSCRIPCION', 'VOTANTEPARROQUIA', 'VOTANTETIPO', 'VOTANTECODIGOBARRAS','VOTANTEFOTO'
+        'VOTANTECIRCUNSCRIPCION', 'VOTANTEPARROQUIA', 'VOTANTETIPO', 'VOTANTECODIGOBARRAS','VOTANTEFOTO','VOTANTEPASSWORD'
     ];
 
     public function getGetImageAttribute()
@@ -32,12 +32,12 @@ class Votantes extends Authenticatable
     }
 
     protected $hidden = [
-        'VOTANTECODIGOBARRAS', 'remember_token',
+        'VOTANTEPASSWORD', 'remember_token',
     ];
 
 
     public function getAuthPassword()
     {
-      return $this->VOTANTECODIGOBARRAS;
+      return $this->VOTANTEPASSWORD;
     }
 }

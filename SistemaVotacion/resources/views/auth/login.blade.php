@@ -26,13 +26,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="VOTANTECODIGOBARRAS" class="col-md-4 col-form-label text-md-right">CONTRASEÑA</label>
+                            <label for="VOTANTEPASSWORD" class="col-md-4 col-form-label text-md-right">CONTRASEÑA</label>
 
                             <div class="col-md-6">
                                 {{csrf_field()}}
-                                <input id="VOTANTECODIGOBARRAS" type="password" class="form-control @error('VOTANTECODIGOBARRAS') is-invalid @enderror" name="VOTANTECODIGOBARRAS" required autocomplete="current-password">
+                                <input id="VOTANTEPASSWORD" type="password" class="form-control @error('VOTANTEPASSWORD') is-invalid @enderror" name="VOTANTEPASSWORD" required autocomplete="current-password">
 
-                                @error('VOTANTECODIGOBARRAS')
+                                @error('VOTANTEPASSWORD')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
