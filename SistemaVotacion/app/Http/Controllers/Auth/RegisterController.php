@@ -81,6 +81,7 @@ class RegisterController extends Controller
         for ($i = 0; $i < 13; $i++) {
             $result .= mt_rand(0, 9);
         }
+        
         $votantes= Votantes::create([
             'VOTANTECEDULA' => $data['VOTANTECEDULA'],
             'VOTANTENOMBRES' => $data['VOTANTENOMBRES'],
