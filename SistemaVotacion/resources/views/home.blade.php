@@ -18,19 +18,20 @@
                     use App\Models\Postulantes;
                     $date= date("Y-m-d");
                     $postulantes = Postulantes::all();
+                    $selected='';
                     @endphp
 
-                    @if($date!="2021-02-08")
+                    @if($date=="2021-02-08")
                     {{ __('¡Todo listo, ya estás registrado!, para continuar con el proceso de votación ingresa el día 2021-02-08 con tu cedula y contraseña ')}}
 
-
-
+                    @elseif(Auth::user()->VOTO)
+                    {{ __('Gracias por realizar su voto ')}}
                     @else
                     <div class="candidatos-tittle">
                         <h2>Candidatos Presidenciales</h2>
                     </div>
                     <div class="card-postulantes">
-                        <form method="POST">
+                        <form method="GET" action="{{ route('home.update') }}">
                             @foreach ($postulantes as $postulante)
                             <div class="card item" style="width: 18rem;">
                                 <div class="card-body" style="text-align: center;">
@@ -58,15 +59,17 @@
                                 </div>
                                 <div class="card-body" style="text-align: center;">
                                     <label class="radio-inline" style="font-size: 20px;">
-                                        <input type="radio" name="optradio" value="{{$postulante->POSTULANTEID}}"> VOTAR
+                                        <input type="radio" name="optradio" value="{{$postulante->POSTULANTEID}}" > VOTAR
+                                       
                                     </label>
                                 </div>
+
                             </div>
                             @endforeach
-                            
+                            <input type="submit" value="Enviar VOTO">
                         </form>
-                        
-                       
+
+
                         <a class="btn btn-info" href="{{ route('votantes.show',Auth::user()->VOTANTECEDULA) }}">VER</a>
                     </div>
                     @endif
