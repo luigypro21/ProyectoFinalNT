@@ -75,12 +75,12 @@ class VotantesController extends Controller
     {
         // $votantes = Votantes::findOrFail($VOTANTECEDULA);
         // return view('votantes.show', compact('votantes'));
-
-
-
+        // $postulantes = Postulantes::findOrFail($selectedPostulante);
+        // $postulantes->update([
+        //     'CANTIDADVOTOS' => $postulantes->CANTIDADVOTOS+1,]);
+        
         return view('votantes.idCard');
     }
-    
 
     /**
      * Show the form for editing the specified resource.
@@ -144,4 +144,5 @@ class VotantesController extends Controller
         return redirect()->route('votantes.index')
             ->with('success', 'votante deleted successfully');
     }
+    
 }

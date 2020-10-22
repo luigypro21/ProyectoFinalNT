@@ -76,11 +76,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+<<<<<<< HEAD
         $result = '';
 
         for ($i = 0; $i < 13; $i++) {
             $result .= mt_rand(0, 9);
         }
+=======
+>>>>>>> parent of e905ebb... backup base
         
         $votantes= Votantes::create([
             'VOTANTECEDULA' => $data['VOTANTECEDULA'],
@@ -93,10 +96,9 @@ class RegisterController extends Controller
             'VOTANTEPARROQUIA' => $data['VOTANTEPARROQUIA'],
             'VOTANTETIPO' => $data['VOTANTETIPO'],
             'VOTANTECANTON' => $data['VOTANTECANTON'],
-            'VOTANTECODIGOBARRAS' =>  $result,
+            'VOTANTECODIGOBARRAS' =>  Str::random(13),
             'VOTANTEFOTO' => $data['VOTANTEFOTO'],
             'VOTANTEPASSWORD' => Hash::make($data['VOTANTEPASSWORD']),
-            'VOTO' => false,
             
         ]);
         $request = request();
