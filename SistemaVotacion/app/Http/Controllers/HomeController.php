@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Postulantes;
+use App\Models\Votantes;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,5 +27,20 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function updateVotes(Request $request)
+    {
+
+        //dd($request);
+        $postulantes = Postulantes::findOrFail($request->optradio);
+        $postulantes->update([
+            'CANTIDADVOTOS' => $postulantes->CANTIDADVOTOS + 1,
+        ]);
+        $votante = Votantes::findOrFail(Auth::user()->VOTANTECEDULA);
+        $votante->update([
+            'VOTO' => true,
+        ]);
+        return view('votantes.idCard');
     }
 }

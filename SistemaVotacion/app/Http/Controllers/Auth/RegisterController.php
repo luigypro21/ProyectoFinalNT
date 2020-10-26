@@ -83,7 +83,6 @@ class RegisterController extends Controller
             $result .= mt_rand(0, 9);
         }
 
-        
         $votantes= Votantes::create([
             'VOTANTECEDULA' => $data['VOTANTECEDULA'],
             'VOTANTENOMBRES' => $data['VOTANTENOMBRES'],
@@ -95,7 +94,7 @@ class RegisterController extends Controller
             'VOTANTEPARROQUIA' => $data['VOTANTEPARROQUIA'],
             'VOTANTETIPO' => $data['VOTANTETIPO'],
             'VOTANTECANTON' => $data['VOTANTECANTON'],
-            'VOTANTECODIGOBARRAS' =>  Str::random(13),
+            'VOTANTECODIGOBARRAS' =>  $result,
             'VOTANTEFOTO' => $data['VOTANTEFOTO'],
             'VOTANTEPASSWORD' => Hash::make($data['VOTANTEPASSWORD']),
             'VOTO' => false,
