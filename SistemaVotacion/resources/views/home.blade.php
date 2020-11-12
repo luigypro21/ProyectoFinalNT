@@ -20,7 +20,7 @@
                     $postulantes = Postulantes::all();
                     @endphp
 
-                    @if($date=="2021-02-08")
+                    @if($date!="2021-02-08")
                     {{ __('¡Todo listo, ya estás registrado!, para continuar con el proceso de votación ingresa el día 2021-02-08 con tu cedula y contraseña ')}}
 
                     @elseif(Auth::user()->VOTO)
