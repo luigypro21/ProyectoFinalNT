@@ -22,7 +22,7 @@ Route::resource('papeletas', 'App\Http\Controllers\PapeletasController');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'updateVotes'])->name('home');
+Route::get('/home-update', [App\Http\Controllers\HomeController::class, 'updateVotes'])->name('home-update');
 Route::resource('/home', 'App\Http\Controllers\HomeController');
 Route::resource('/', 'App\Http\Controllers\HomeController');
 

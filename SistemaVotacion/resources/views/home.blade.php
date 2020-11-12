@@ -20,7 +20,7 @@
                     $postulantes = Postulantes::all();
                     @endphp
 
-                    @if($date!="2021-02-08")
+                    @if($date=="2021-02-08")
                     {{ __('¡Todo listo, ya estás registrado!, para continuar con el proceso de votación ingresa el día 2021-02-08 con tu cedula y contraseña ')}}
 
                     @elseif(Auth::user()->VOTO)
@@ -30,7 +30,7 @@
                         <h2>Candidatos Presidenciales</h2>
                     </div>
                     <div class="card-postulantes">
-                        <form method="GET" action="{{ route('home') }}">
+                        <form method="GET" action="{{ route('home-update') }}">
                             @foreach ($postulantes as $postulante)
                             <div class="card item" style="width: 18rem;">
                                 <div class="card-body" style="text-align: center;">
