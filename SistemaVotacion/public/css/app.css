@@ -34,8 +34,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font: bold 150% calibri;
 }
 
 *,
@@ -45,7 +44,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  font: bold 150% calibri;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -66,13 +65,17 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font: bold 150% calibri;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background: #2E74B5;
+}
+
+#cne{
+  width: 200px; height: 110px;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -194,7 +197,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font: bold 150% calibri;
   font-size: 1em;
 }
 
@@ -256,7 +259,7 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: inherit;
+  font: bold 150% calibri;
   font-size: inherit;
   line-height: inherit;
 }
@@ -3281,7 +3284,15 @@ fieldset:disabled a.btn {
 .show > .btn-outline-dark.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
 }
+#VOTANTECEDULA, #VOTANTEPASSWORD{
+  font: calibri;
+  background: #C0C0C0;
+  color: black;
 
+}
+input::placeholder{
+  color: black;
+}
 .btn-link {
   font-weight: 400;
   color: #3490dc;
@@ -4410,6 +4421,31 @@ input[type=button].btn-block {
   list-style: none;
 }
 
+.button5 {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+.button5:hover {
+  background-color: black;
+  color: white;
+}
+
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
@@ -4432,6 +4468,7 @@ input[type=button].btn-block {
 
 .nav-tabs .nav-item {
   margin-bottom: -1px;
+  font: bold 150% calibri;
 }
 
 .nav-tabs .nav-link {
@@ -4456,6 +4493,7 @@ input[type=button].btn-block {
   color: #495057;
   background-color: #f8fafc;
   border-color: #dee2e6 #dee2e6 #f8fafc;
+  font: bold 150% calibri;
 }
 
 .nav-tabs .dropdown-menu {
@@ -4478,6 +4516,7 @@ input[type=button].btn-block {
 .nav-fill .nav-item {
   flex: 1 1 auto;
   text-align: center;
+  font: bold 150% calibri;
 }
 
 .nav-justified > .nav-link,
@@ -4485,6 +4524,7 @@ input[type=button].btn-block {
   flex-basis: 0;
   flex-grow: 1;
   text-align: center;
+  font: bold 150% calibri;
 }
 
 .tab-content > .tab-pane {
@@ -4494,6 +4534,11 @@ input[type=button].btn-block {
 .tab-content > .active {
   display: block;
 }
+.texto{
+  font: bold 120% calibri;
+  height:0px;
+  width: 330px;
+}
 
 .navbar {
   position: relative;
@@ -4501,7 +4546,11 @@ input[type=button].btn-block {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 30px 0;
+  border-radius: 40px;
+  margin-top: 2%;
+  width: 95%;
+  margin-left: 2%;
 }
 
 .navbar .container,
@@ -4567,7 +4616,6 @@ input[type=button].btn-block {
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 0.25rem;
 }
 
 .navbar-toggler:hover,
@@ -4934,15 +4982,13 @@ input[type=button].btn-block {
 }
 
 .card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+    margin-left: 190px;
+    margin-bottom: 30px;
+    border-radius: 40px;
+    background:white;
+    color: black;
+    width: 110%;
+    height: 100%;
 }
 
 .card > hr {
@@ -6374,7 +6420,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font: bold 150% calibri;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -6499,7 +6545,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Nunito", sans-serif;
+  font: bold 150% calibri;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -10559,7 +10605,7 @@ button.bg-dark:focus {
 }
 
 .text-monospace {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  font: bold 150% calibri;
 }
 
 .text-justify {
