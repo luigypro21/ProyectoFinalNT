@@ -64,12 +64,12 @@
                             </div>
                             @endforeach
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary">ENVIAR VOTO</button>
+                                <button type="submit" class="button button5">ENVIAR VOTO</button>
                             </div>
                         </form>
 
 
-                        <a class="btn btn-info" href="{{ route('votantes.show',Auth::user()->VOTANTECEDULA) }}">VER</a>
+                        <a class="button button5" href="{{ route('votantes.show',Auth::user()->VOTANTECEDULA) }}">VER</a>
                     </div>
                     @endif
                 </div>
