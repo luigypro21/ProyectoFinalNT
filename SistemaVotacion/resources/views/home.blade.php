@@ -2,9 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card ">
+            <div class="card2 ">
                 <div class="card-header">{{ __('Sistema de Votación') }}</div>
 
                 <div class="card-body ">
@@ -29,28 +28,37 @@
                     <div class="candidatos-tittle">
                         <h2>Candidatos Presidenciales</h2>
                     </div>
+                    <div style="overflow-x:auto;">
+                            <table style="width:100%;">
                     <div class="card-postulantes">
                         <form method="GET" action="{{ route('home-update') }}">
-                            @foreach ($postulantes as $postulante)
+                        @foreach ($postulantes as $postulante)
+                        <td>
                             <div class="card item" style="width: 18rem;">
                                 <div class="card-body" style="text-align: center;">
-                                    <h3 class="card-title"><strong>{{$postulante->POSTULANTEPARTIDO}}</strong></h3>
+                                    <h5 class="card-title"><strong>{{$postulante->POSTULANTEPARTIDO}}</strong></h5>
                                 </div>
                                 <div class="card-body" style="text-align: center;">
-                                    <h3 class="card-title"><strong>{{$postulante->POSTULANTENUMEROLISTA}}</strong></h3>
+                                    <h5 class="card-title"><strong>{{$postulante->POSTULANTENUMEROLISTA}}</strong></h5>
                                 </div>
                                 @if($postulante->POSTULANTEFOTOLISTA)
-                                <img class="card-img-top" style="height: 100px;" src="{{$postulante->get_image}}" alt="Card image cap">
+                                <div class="card-body" style="text-align: center;">
+                                <img class="card-img-top" style="height: 100px; text-align: center;" src="{{$postulante->get_image}}" alt="imagen lista">
+                                </div>
                                 @endif
                                 @if($postulante->POSTULANTEFOTO)
-                                <img class="card-img-top" style="height: 250px;" src="{{$postulante->get_image2}}" alt="Card image cap">
+                                <div class="card-body" style="text-align: center;">
+                                <img class="card-img-top" style="height: 250px;" src="{{$postulante->get_image2}}" alt="imagen presidente">
+                                </div>
                                 @endif
                                 <div class="card-body" style="text-align: center;">
                                     <h5 class="card-title">{{$postulante->POSTULANTENOMBRE}} {{$postulante->POSTULANTEAPELLIDO}}</h5>
                                     <p class="card-text"><strong>{{$postulante->POSTULANTECARGO}}</strong></p>
                                 </div>
                                 @if($postulante->VICEFOTO)
-                                <img class="card-img-top" style="height: 250px;" src="{{$postulante->get_image3}}" alt="Card image cap">
+                                <div class="card-body" style="text-align: center;">
+                                <img class="card-img-top" style="height: 250px;" src="{{$postulante->get_image3}}" alt="imagen vicepresidente">
+                                </div>
                                 @endif
                                 <div class="card-body" style="text-align: center;">
                                     <h5 class="card-title">{{$postulante->VICENOMBRE}} {{$postulante->VICEAPELLIDO}}</h5>
@@ -62,7 +70,10 @@
                                     </label>
                                 </div>
                             </div>
+                        </td>
                             @endforeach
+                            </table>
+                        </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                 <button type="submit" class="button button5">ENVIAR VOTO</button>
                             </div>
@@ -76,6 +87,5 @@
             </div>
 
         </div>
-    </div>
 </div>
 @endsection

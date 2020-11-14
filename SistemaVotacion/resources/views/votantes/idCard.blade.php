@@ -1,69 +1,64 @@
-@extends('votantes.layout')
+@extends('layouts.app')
 @section('content')
+
+<div class="card4">
 <div class="row">
     <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2> Certificado de votacion del votante: {{Auth::user()->VOTANTENOMBRES}} {{Auth::user()->VOTANTEAPELLIDOS}}</h2>
+        <div style="text-align:center;">
+            <h3> Certificado de votacion del ciudadano: <br> {{Auth::user()->VOTANTENOMBRES}} {{Auth::user()->VOTANTEAPELLIDOS}}</h3>
         </div>
     </div>
 </div>
-<div class="card text-white bg-primary mb-3">
-    <div class="row no-gutters">
-        <div class="col-md-4">
-            <img src="{{Auth::user()->get_image}}" class="card-img" alt="...">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
                 @php
                 use App\Models\Postulantes;
                 $date= date("Y-m-d");
                 @endphp
-                <div class="form-group">
+                <div style="text-align:center;">
                     <strong>FECHA:</strong>
                     <p class="card-title">{{$date}}</p>
                 </div>
+    <table style="width:100%;">
+    <div class="row no-gutters">
+        <div class="col-md-8">
+            <div class="card-body">
+            <td>
                 <div class="form-group">
-                    <strong>CÉDULA No:</strong>
-                    <p class="card-title">{{Auth::user()->VOTANTECEDULA}}</p>
+                <p class="card-title">{{Auth::user()->VOTANTECEDULA}}</strong></p>
+                <strong>CÉDULA No</strong>
                 </div>
                 <div class="form-group">
-                    <strong>APELLIDOS Y NOMBRES</strong>
-                    <p class="card-title">{{Auth::user()->VOTANTEAPELLIDOS}} {{Auth::user()->VOTANTENOMBRES}}</p>
+                <img src="{{Auth::user()->get_image}}" class="card-img" alt="...">
                 </div>
+                <div class="form-group">
+                <p class="card-title">{{Auth::user()->VOTANTEAPELLIDOS}} {{Auth::user()->VOTANTENOMBRES}}</p>
+                <strong>APELLIDOS Y NOMBRES</strong>
+                </div>
+                </td>
+                <td>
                 <div class="form-group">
                     <strong>PROVINCIA:</strong>
-                    <p class="card-title">{{Auth::user()->VOTANTEPROVINCIA}}</p>
+                    {{Auth::user()->VOTANTEPROVINCIA}}
                 </div>
                 <div class="form-group">
                     <strong>CANTÓN:</strong>
-                    <p class="card-title">{{Auth::user()->VOTANTECANTON}}</p>
+                   {{Auth::user()->VOTANTECANTON}}
                 </div>
                 <div class="form-group">
                     <strong>CIRCUNSCRIPCIÓN:</strong>
-                    <p class="card-title">{{Auth::user()->VOTANTECIRCUNSCRIPCION}}</p>
+                    {{Auth::user()->VOTANTECIRCUNSCRIPCION}}
                 </div>
                 <div class="form-group">
                     <strong>PARROQUIA:</strong>
-                    <p class="card-title">{{Auth::user()->VOTANTEPARROQUIA}}</p>
+                    {{Auth::user()->VOTANTEPARROQUIA}}
                 </div>
-                <?php
-
-                use \Milon\Barcode\DNS1D;
-                use Illuminate\Support\Facades\Auth;
-
-                $d = new DNS1D();
-                //dd(Auth::user()->VOTANTECODIGOBARRAS);
-                echo $d->getBarcodeSVG(Auth::user()->VOTANTECODIGOBARRAS, 'PHARMA2T', 3, 33);
-                ?>
+                <div class="form-group">
+                <strong>COMPARTIR EN: </strong>
+                <a href="http://www.facebook.com/sharer.php?u=https://eva.puce.edu.ec/" target="_blank">Facebook</a>
+                </div>
+                </td>
             </div>
         </div>
-
     </div>
+    </table>
 </div>
-<div class="row">
-    <a href="http://www.facebook.com/sharer.php?u=https://eva.puce.edu.ec/" target="_blank">Share on facebook</a>
-</div>
-
-
-
 @endsection

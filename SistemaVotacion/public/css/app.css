@@ -47,7 +47,7 @@ html {
   font: bold 150% calibri;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-or: rgba(0, 0, 0, 0);
 }
 
 article,
@@ -571,6 +571,15 @@ pre code {
   word-break: normal;
 }
 
+.center{
+  margin:0;
+  position:absolute;
+  top: 90%;
+  left:25%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;
@@ -587,6 +596,10 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+.container2 { 
+  height: 200px;
+  position: relative;
 }
 
 @media (min-width: 576px) {
@@ -1782,6 +1795,11 @@ pre code {
   padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
+}
+
+td{
+  vertical-align: top;
+  text-align: center;
 }
 
 .table thead th {
@@ -4446,6 +4464,23 @@ input[type=button].btn-block {
   color: white;
 }
 
+.button6 {
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+  left: 42.5%;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+
+}
+
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
@@ -4982,13 +5017,37 @@ input[type=button].btn-block {
 }
 
 .card {
-    margin-left: 190px;
-    margin-bottom: 30px;
+    margin-left: 20%;
+    margin-right: 20%;
     border-radius: 40px;
     background:white;
     color: black;
     width: 110%;
     height: 100%;
+}
+.card2 {
+  margin-left: -25%;
+  border-radius: 40px;
+  background:white;
+  color: black;
+  width: 202.5%;
+}
+
+.card3 {
+  margin-left: -5%;
+  border-radius: 40px;
+  background-color:white;
+  color: black;
+
+  width: 160%;
+}
+
+.card4 {
+  margin-left: 10%;
+  border-radius: 40px;
+  background-color:white;
+  color: black;
+  width: 80%;
 }
 
 .card > hr {
