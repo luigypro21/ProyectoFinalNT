@@ -23,7 +23,7 @@
                     {{ __('¡Todo listo, ya estás registrado!, para continuar con el proceso de votación ingresa el día 2021-02-08 con tu cedula y contraseña ')}}
 
                     @elseif(Auth::user()->VOTO)
-                    {{ __('¡Gracias por su voto')}}
+                    {{ __('¡Gracias por su voto!')}}
                     @else
                     <div class="candidatos-tittle">
                         <h2>Candidatos Presidenciales</h2>
