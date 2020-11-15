@@ -77,6 +77,12 @@ body {
 #cne{
   width: 200px; height: 110px;
 }
+#imgpostulantes{
+  width: 200px; height: 210px;
+}
+#imgvotantes{
+  width: 200px; height: 110px;
+}
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;

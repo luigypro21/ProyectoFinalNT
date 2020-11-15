@@ -20,14 +20,13 @@
     <table style="width:100%;">
     <div class="row no-gutters">
         <div class="col-md-8">
-            <div class="card-body">
             <td>
                 <div class="form-group">
                 <p class="card-title">{{Auth::user()->VOTANTECEDULA}}</strong></p>
                 <strong>CÉDULA No</strong>
                 </div>
                 <div class="form-group">
-                <img src="{{Auth::user()->get_image}}" class="card-img" alt="...">
+                <img src="{{Auth::user()->get_image}}" class="card-img" alt="..." id="imgpostulantes">
                 </div>
                 <div class="form-group">
                 <p class="card-title">{{Auth::user()->VOTANTEAPELLIDOS}} {{Auth::user()->VOTANTENOMBRES}}</p>
@@ -56,7 +55,6 @@
                 <a href="http://www.facebook.com/sharer.php?u=https://eva.puce.edu.ec/" target="_blank">Facebook</a>
                 </div>
                 </td>
-            </div>
         </div>
     </div>
     </table>
