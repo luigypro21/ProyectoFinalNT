@@ -29,7 +29,7 @@
                         <h2>Candidatos Presidenciales</h2>
                     </div>
                     <div style="overflow-x:auto;">
-                            <table style="width:100%;">
+                            <table style="width:70%;height:70%">
                     <div class="card-postulantes">
                         <form method="GET" action="{{ route('home-update') }}">
                         @foreach ($postulantes as $postulante)

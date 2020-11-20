@@ -17,17 +17,6 @@
                     <strong>FECHA:</strong>
                     <p class="card-title">{{$date}}</p>
                 </div>
-                <div style="text-align:center;">
-                <?php
-
-                use \Milon\Barcode\DNS1D;
-                use Illuminate\Support\Facades\Auth;
-
-                $d = new DNS1D();
-                //dd(Auth::user()->VOTANTECODIGOBARRAS);
-                echo $d->getBarcodeSVG(Auth::user()->VOTANTECODIGOBARRAS, 'PHARMA2T', 3, 33);
-                ?>
-                </div>
     <table style="width:100%;">
     <div class="row no-gutters">
         <div class="col-md-8">
@@ -64,6 +53,17 @@
                 <div class="form-group">
                 <strong>COMPARTIR EN: </strong>
                 <a href="http://www.facebook.com/sharer.php?u=https://eva.puce.edu.ec/" target="_blank">Facebook</a>
+                </div>
+                <div style="text-align:center;">
+                <?php
+
+                use \Milon\Barcode\DNS1D;
+                use Illuminate\Support\Facades\Auth;
+
+                $d = new DNS1D();
+                //dd(Auth::user()->VOTANTECODIGOBARRAS);
+                echo $d->getBarcodeSVG(Auth::user()->VOTANTECODIGOBARRAS, 'PHARMA2T', 3, 33);
+                ?>
                 </div>
                 </td>
         </div>

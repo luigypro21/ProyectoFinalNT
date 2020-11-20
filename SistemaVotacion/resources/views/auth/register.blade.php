@@ -137,11 +137,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="VOTANTETIPO" class="col-md-4 col-form-label text-md-right">TIPO</label>
-
+                                <label for="VOTANTETIPO" class="col-md-4 col-form-label text-md-right">Seleccione el tipo de Votante:</label>
                             <div class="col-md-6">
-                                <input id="VOTANTETIPO" type="text" class="form-control @error('VOTANTETIPO') is-invalid @enderror" name="VOTANTETIPO" value="{{ old('VOTANTETIPO') }}" required autocomplete="VOTANTETIPO" autofocus>
-
+                                <select id="V0TANTETIPO" type="submit"class="form-control @error('VOTANTETIPO') is-invalid @enderror"name="VOTANTETIPO" value="{{ old('VOTANTETIPO') }}" required autocomplete="VOTANTETIPO" autofocus>
+                                    <option value="M">Militar</option>
+                                    <option value="N">Natural</option>
+                                    <option value="P">Postulante</option>
+                                </select>
                                 @error('VOTANTETIPO')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
