@@ -13,17 +13,13 @@
                 use App\Models\Postulantes;
                 $date= date("Y-m-d");
                 @endphp
-                <div style="text-align:center;">
-                    <strong>FECHA:</strong>
-                    <p class="card-title">{{$date}}</p>
-                </div>
     <table style="width:100%;">
     <div class="row no-gutters">
         <div class="col-md-8">
             <td>
                 <div class="form-group">
                 <p class="card-title">{{Auth::user()->VOTANTECEDULA}}</strong></p>
-                <strong>CÉDULA No</strong>
+                <strong>CÉDULA No.</strong>
                 </div>
                 <div class="form-group">
                 <img src="{{Auth::user()->get_image}}" class="card-img" alt="..." id="imgpostulantes">
@@ -54,6 +50,8 @@
                 <strong>COMPARTIR EN: </strong>
                 <a href="http://www.facebook.com/sharer.php?u=https://eva.puce.edu.ec/" target="_blank">Facebook</a>
                 </div>
+                <strong>FECHA:</strong>
+                    <p class="card-title">{{$date}}</p>
                 <div style="text-align:center;">
                 <?php
 
@@ -64,7 +62,9 @@
                 //dd(Auth::user()->VOTANTECODIGOBARRAS);
                 echo $d->getBarcodeSVG(Auth::user()->VOTANTECODIGOBARRAS, 'PHARMA2T', 3, 33);
                 ?>
+                    
                 </div>
+                    
                 </td>
         </div>
     </div>

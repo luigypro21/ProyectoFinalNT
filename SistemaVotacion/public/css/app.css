@@ -74,6 +74,16 @@ body {
   background: #2E74B5;
 }
 
+#ImgLogo{
+  width: 200px; height: 110px;
+  text-align: center;
+}
+
+#ImgFotoLista{
+  width: 200px; height: 150px;
+  text-align: center;
+}
+
 #cne{
   width: 200px; height: 110px;
 }
@@ -4510,6 +4520,7 @@ input[type=button].btn-block {
 .nav-tabs .nav-item {
   margin-bottom: -1px;
   font: bold 150% calibri;
+  
 }
 
 .nav-tabs .nav-link {
@@ -5022,6 +5033,16 @@ input[type=button].btn-block {
   color: #fff;
 }
 
+.cardesp {
+  margin-left: 5%;
+  margin-right: 20%;
+  border-radius: 40px;
+  background:white;
+  color: black;
+  width: 141%;
+  height: 0%;
+}
+
 .card {
     margin-left: 20%;
     margin-right: 20%;
@@ -5086,7 +5107,7 @@ input[type=button].btn-block {
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 1.25rem;
+  padding: 1rem;
 }
 
 .card-title {

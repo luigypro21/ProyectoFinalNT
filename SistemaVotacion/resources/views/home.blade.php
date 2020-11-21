@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
         <div class="col-md-8">
-            <div class="card2 ">
-                <div class="card-header">{{ __('Sistema de Votación') }}</div>
+            <div class="cardesp">
+                <div class="card-header">{{ __('Candidatos Presidenciales') }}</div>
 
                 <div class="card-body ">
                     @if (session('status'))
@@ -26,43 +25,42 @@
                     {{ __('¡Gracias por su voto!')}}
                     @else
                     <div class="candidatos-tittle">
-                        <h2>Candidatos Presidenciales</h2>
                     </div>
                     <div style="overflow-x:auto;">
-                            <table style="width:70%;height:70%">
+                            <table style="width:60%;height:60%">
                     <div class="card-postulantes">
                         <form method="GET" action="{{ route('home-update') }}">
                         @foreach ($postulantes as $postulante)
                         <td>
-                            <div class="card item" style="width: 18rem;">
+                            <div class="card item" style="width: 10rem;">
                                 <div class="card-body" style="text-align: center;">
                                     <h5 class="card-title"><strong>{{$postulante->POSTULANTEPARTIDO}}</strong></h5>
                                 </div>
                                 <div class="card-body" style="text-align: center;">
-                                    <h5 class="card-title"><strong>{{$postulante->POSTULANTENUMEROLISTA}}</strong></h5>
+                                    <h5 class="card-title">{{$postulante->POSTULANTENUMEROLISTA}}</h5>
                                 </div>
                                 @if($postulante->POSTULANTEFOTOLISTA)
+                                <p class="card-text"><strong>{{$postulante->POSTULANTECARGO}}</strong></p>
                                 <div class="card-body" style="text-align: center;">
-                                <img class="card-img-top" style="height: 100px; text-align: center;" src="{{$postulante->get_image}}" alt="imagen lista">
+                                <img class="card-img-top" id="ImgLogo" src="{{$postulante->get_image}}" alt="imagen lista">
                                 </div>
                                 @endif
                                 @if($postulante->POSTULANTEFOTO)
                                 <div class="card-body" style="text-align: center;">
-                                <img class="card-img-top" style="height: 250px;" src="{{$postulante->get_image2}}" alt="imagen presidente">
+                                <img class="card-img-top"  id = "ImgFotoLista" src="{{$postulante->get_image2}}" alt="imagen presidente">
                                 </div>
                                 @endif
                                 <div class="card-body" style="text-align: center;">
                                     <h5 class="card-title">{{$postulante->POSTULANTENOMBRE}} {{$postulante->POSTULANTEAPELLIDO}}</h5>
-                                    <p class="card-text"><strong>{{$postulante->POSTULANTECARGO}}</strong></p>
                                 </div>
                                 @if($postulante->VICEFOTO)
                                 <div class="card-body" style="text-align: center;">
-                                <img class="card-img-top" style="height: 250px;" src="{{$postulante->get_image3}}" alt="imagen vicepresidente">
+                                    <p class="card-text"><strong>VICEPRESIDENTE</strong></p>
+                                <img class="card-img-top" id = "ImgFotoLista" src="{{$postulante->get_image3}}" alt="imagen vicepresidente">
                                 </div>
                                 @endif
                                 <div class="card-body" style="text-align: center;">
                                     <h5 class="card-title">{{$postulante->VICENOMBRE}} {{$postulante->VICEAPELLIDO}}</h5>
-                                    <p class="card-text"><strong>VICEPRESIDENTE</strong></p>
                                 </div>
                                 <div class="card-body" style="text-align: center;">
                                     <label class="radio-inline" style="font-size: 20px;">
@@ -85,7 +83,5 @@
                     @endif
                 </div>
             </div>
-
-        </div>
 </div>
 @endsection

@@ -42,7 +42,7 @@
                             <label for="VOTANTENOMBRES" class="col-md-4 col-form-label text-md-right">NOMBRES</label>
 
                             <div class="col-md-6">
-                                <input id="VOTANTENOMBRES" type="text" class="form-control @error('VOTANTENOMBRES') is-invalid @enderror" name="VOTANTENOMBRES" value="{{ old('VOTANTENOMBRES') }}" required autocomplete="VOTANTENOMBRES" autofocus>
+                                <input onkeyup="javascript:this.value=this.value.toUpperCase();" id="VOTANTENOMBRES" type="text" class="form-control @error('VOTANTENOMBRES') is-invalid @enderror" name="VOTANTENOMBRES" value="{{ old('VOTANTENOMBRES') }}" required autocomplete="VOTANTENOMBRES" autofocus>
 
                                 @error('VOTANTENOMBRES')
                                 <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
                             <label for="VOTANTEAPELLIDOS" class="col-md-4 col-form-label text-md-right">APELLIDOS</label>
 
                             <div class="col-md-6">
-                                <input id="VOTANTEAPELLIDOS" type="text" class="form-control @error('VOTANTEAPELLIDOS') is-invalid @enderror" name="VOTANTEAPELLIDOS" value="{{ old('VOTANTEAPELLIDOS') }}" required autocomplete="VOTANTEAPELLIDOS" autofocus>
+                                <input onkeyup="javascript:this.value=this.value.toUpperCase();" id="VOTANTEAPELLIDOS" type="text" class="form-control @error('VOTANTEAPELLIDOS') is-invalid @enderror" name="VOTANTEAPELLIDOS" value="{{ old('VOTANTEAPELLIDOS') }}" required autocomplete="VOTANTEAPELLIDOS" autofocus>
 
                                 @error('VOTANTEAPELLIDOS')
                                 <span class="invalid-feedback" role="alert">
@@ -84,7 +84,7 @@
                             <label for="VOTANTEPROVINCIA" class="col-md-4 col-form-label text-md-right">PROVINCIA</label>
 
                             <div class="col-md-6">
-                                <input id="VOTANTEPROVINCIA" type="text" class="form-control @error('VOTANTEPROVINCIA') is-invalid @enderror" name="VOTANTEPROVINCIA" value="{{ old('VOTANTEPROVINCIA') }}" required autocomplete="VOTANTEPROVINCIA" autofocus>
+                                <input onkeyup="javascript:this.value=this.value.toUpperCase();" id="VOTANTEPROVINCIA" type="text" class="form-control @error('VOTANTEPROVINCIA') is-invalid @enderror" name="VOTANTEPROVINCIA" value="{{ old('VOTANTEPROVINCIA') }}" required autocomplete="VOTANTEPROVINCIA" autofocus>
 
                                 @error('VOTANTEPROVINCIA')
                                 <span class="invalid-feedback" role="alert">
@@ -98,7 +98,7 @@
                             <label for="VOTANTECANTON" class="col-md-4 col-form-label text-md-right">CANTÓN</label>
 
                             <div class="col-md-6">
-                                <input id="VOTANTECANTON" type="text" class="form-control @error('VOTANTECANTON') is-invalid @enderror" name="VOTANTECANTON" value="{{ old('VOTANTECANTON') }}" required autocomplete="VOTANTECANTON" autofocus>
+                                <input onkeyup="javascript:this.value=this.value.toUpperCase();" id="VOTANTECANTON" type="text" class="form-control @error('VOTANTECANTON') is-invalid @enderror" name="VOTANTECANTON" value="{{ old('VOTANTECANTON') }}" required autocomplete="VOTANTECANTON" autofocus>
 
                                 @error('VOTANTECANTON')
                                 <span class="invalid-feedback" role="alert">
@@ -112,7 +112,7 @@
                             <label for="VOTANTECIRCUNSCRIPCION" class="col-md-4 col-form-label text-md-right">CIRCUNSCRIPCIÓN</label>
 
                             <div class="col-md-6">
-                                <input id="VOTANTECIRCUNSCRIPCION" type="text" class="form-control @error('VOTANTECIRCUNSCRIPCION') is-invalid @enderror" name="VOTANTECIRCUNSCRIPCION" value="{{ old('VOTANTECIRCUNSCRIPCION') }}" required autocomplete="VOTANTECIRCUNSCRIPCION" autofocus>
+                                <input onkeyup="javascript:this.value=this.value.toUpperCase();" id="VOTANTECIRCUNSCRIPCION" type="text" class="form-control @error('VOTANTECIRCUNSCRIPCION') is-invalid @enderror" name="VOTANTECIRCUNSCRIPCION" value="{{ old('VOTANTECIRCUNSCRIPCION') }}" required autocomplete="VOTANTECIRCUNSCRIPCION" autofocus>
 
                                 @error('VOTANTECIRCUNSCRIPCION')
                                 <span class="invalid-feedback" role="alert">
@@ -126,7 +126,7 @@
                             <label for="VOTANTEPARROQUIA" class="col-md-4 col-form-label text-md-right">PARROQUIA</label>
 
                             <div class="col-md-6">
-                                <input id="VOTANTEPARROQUIA" type="text" class="form-control @error('VOTANTEPARROQUIA') is-invalid @enderror" name="VOTANTEPARROQUIA" value="{{ old('VOTANTEPARROQUIA') }}" required autocomplete="VOTANTEPARROQUIA" autofocus>
+                                <input onkeyup="javascript:this.value=this.value.toUpperCase();" id="VOTANTEPARROQUIA" type="text" class="form-control @error('VOTANTEPARROQUIA') is-invalid @enderror" name="VOTANTEPARROQUIA" value="{{ old('VOTANTEPARROQUIA') }}" required autocomplete="VOTANTEPARROQUIA" autofocus>
 
                                 @error('VOTANTEPARROQUIA')
                                 <span class="invalid-feedback" role="alert">
@@ -209,7 +209,7 @@
                         <div >
                             <div >
                                 <button type="submit" class="button button6">
-                                    {{ __('Register') }}
+                                    {{ __('Registrarse') }}
                                 </button>
                             </div>
                         </div>
