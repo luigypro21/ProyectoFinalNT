@@ -48,7 +48,7 @@
                 </div>
                 <div class="form-group">
                 <strong>COMPARTIR EN: </strong>
-                <a href="http://www.facebook.com/sharer.php?u=https://eva.puce.edu.ec/" target="_blank">Facebook</a>
+                <a href="http://www.facebook.com/sharer.php?u=https://sistemavotacioncne2021.herokuapp.com/login/" target="_blank">Facebook</a>
                 </div>
                 <strong>FECHA:</strong>
                     <p class="card-title">{{$date}}</p>
